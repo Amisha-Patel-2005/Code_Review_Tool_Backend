@@ -4,8 +4,18 @@ const aiRoutes = require('./routes/ai.routes');
 
 const app = express();
 
+// ✅ CORS setup (final)
+app.use(
+  cors({
+    origin: [
+      "https://code-review-tool-frontend.vercel.app", 
+    ],
+    methods: ["GET", "POST"],
+    credentials: true,
+  })
+);
+
 // Middleware
-app.use(cors());
 app.use(express.json());
 
 // Routes
